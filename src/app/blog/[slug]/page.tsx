@@ -27,7 +27,7 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
 
   const related = posts.filter(p => 
     p.slug !== post.slug && 
-    p.categories.some(c => post.categories.includes(c))
+    p.categories.some(c => (post.categories as string[]).includes(c))
   ).slice(0, 3)
 
   return (
