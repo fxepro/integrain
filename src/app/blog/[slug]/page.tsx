@@ -29,7 +29,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
 
   const related = posts.filter(p => 
     p.slug !== post.slug && 
-    p.categories.some(c => (post.categories as string[]).includes(c))
+    p.categories.some(c => (post.categories as readonly string[]).includes(c))
   ).slice(0, 3)
 
   return (
